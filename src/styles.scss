@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+$cosmic-blue: #0A1D56;
+$luminous-gold: #D4AF37;
+$creative-purple: #6B48FF;
+$pearl-white: #F8F1E9;
+$graphite-gray: #2D3748;
+
+// Fontes
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500&display=swap');
+$font-title: 'Cinzel', serif;
+$font-body: 'Inter', sans-serif;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-body;
+  background-color: $pearl-white;
+  color: $graphite-gray;
+}
+
+h1,h2,h3, p {
+  margin: 0;
+  padding: 0;
+  font-family: $font-title;
+  color: $cosmic-blue;
+}
+
+a {
+  text-decoration: none;
+  color: $creative-purple;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $luminous-gold;
+  }
+}
+
+button {
+  font-family: $font-body;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
