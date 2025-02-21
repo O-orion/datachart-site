@@ -1,0 +1,67 @@
+@import '../../styled/variables';
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent;
+  transition: background 0.3s ease;
+  z-index: 1000;
+
+  &.scrolled {
+    background: $pearl-white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+  }
+
+  .logo h1 {
+    font-family: $font-title;
+    color: $pearl-white;
+    font-size: 28px;
+    margin: 0;
+  }
+
+  nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    a {
+      color: $graphite-gray;
+      font-size: 16px;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: $luminous-gold;
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+    }
+
+    .cta {
+      background: $luminous-gold;
+      color: $cosmic-blue;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 500;
+
+      &:hover {
+        background: $creative-purple;
+        color: $pearl-white;
+      }
+    }
+  }
+}

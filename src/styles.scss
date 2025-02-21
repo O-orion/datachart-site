@@ -1,14 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-$cosmic-blue: #0A1D56;
-$luminous-gold: #D4AF37;
-$creative-purple: #6B48FF;
-$pearl-white: #F8F1E9;
-$graphite-gray: #2D3748;
-
-// Fontes
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500&display=swap');
-$font-title: 'Cinzel', serif;
-$font-body: 'Inter', sans-serif;
+@import './app/styled/variables';
 
 body {
   margin: 0;
