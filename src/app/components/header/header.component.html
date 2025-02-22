@@ -1,10 +1,15 @@
-
 <header [class.scrolled]="isScrolled">
-  <div class="log">
+  <div class="logo">
     <h1>DataChart</h1>
   </div>
 
-  <nav>
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav [class.active]="menuOpen">
     <a href="">Home</a>
     <a href="">Serviços</a>
     <a href="">Cursos</a>

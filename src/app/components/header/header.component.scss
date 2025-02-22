@@ -1,4 +1,4 @@
-@import '../../styled/variables';
+@import '../../styled/variables'; // Ajuste o caminho conforme necessário
 
 header {
   position: sticky;
@@ -13,15 +13,31 @@ header {
 
   &.scrolled {
     background: $pearl-white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .logo h1 {
     font-family: $font-title;
-    color: $pearl-white;
+    color: $cosmic-blue;
     font-size: 28px;
     margin: 0;
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+
+    span {
+      width: 30px;
+      height: 3px;
+      background: $pearl-white;
+      transition: all 0.3s ease;
+    }
   }
 
   nav {
@@ -35,7 +51,7 @@ header {
       position: relative;
 
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         width: 0;
         height: 2px;
@@ -62,6 +78,67 @@ header {
         background: $creative-purple;
         color: $pearl-white;
       }
+    }
+  }
+
+  // Media Query para Responsividade
+  @media (max-width: 768px) {
+    padding: 15px 20px;
+
+    .logo h1 {
+      font-size: 24px;
+    }
+
+    .hamburger {
+      display: flex;
+      span {
+        background: $graphite-gray;
+      }
+    }
+
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: $pearl-white;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &.active {
+        display: flex;
+      }
+
+      a {
+        color: $graphite-gray;
+        font-size: 18px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+
+        &:after {
+          display: none; // Remove sublinhado em mobile para simplicidade
+        }
+      }
+
+      .cta {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+      }
+    }
+
+    &.scrolled .hamburger span {
+      background: $graphite-gray;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo h1 {
+      font-size: 20px;
     }
   }
 }

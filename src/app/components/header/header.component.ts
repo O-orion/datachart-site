@@ -8,9 +8,14 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
   isScrolled = false;
+  menuOpen = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 }
