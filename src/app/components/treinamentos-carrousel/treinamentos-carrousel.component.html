@@ -5,9 +5,9 @@
   </header>
   <div class="carousel-container">
     <div class="carousel-wrapper">
-      <div class="carousel-slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div class="carousel-slides">
         @for (training of trainings; track $index) {
-          <div class="carousel-slide">
+          <div class="carousel-slide" *ngIf="currentIndex === $index" [@slideAnimation]>
             <div class="slide-image">
               <img [src]="training.image" [alt]="training.title" loading="lazy" />
               <div class="image-overlay"></div>
@@ -31,15 +31,14 @@
       </svg>
     </button>
     <div class="carousel-dots">
-
+      @for (training of trainings; track $index) {
         <button
-          *ngFor="training of trainings; let i = index"
           class="dot"
-          [class.active]="i === currentIndex"
-          (click)="goToSlide(i)"
-          [attr.aria-label]="'Ir para o slide ' + (i + 1)"
+          [class.active]="currentIndex === $index"
+          (click)="goToSlide($index)"
+          [attr.aria-label]="'Ir para o slide ' + ($index + 1)"
         ></button>
-
+      }
     </div>
   </div>
 </section>
