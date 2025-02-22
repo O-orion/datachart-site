@@ -1,1 +1,45 @@
-<p>treinamentos-carrousel works!</p>
+<section class="carousel" id="carousel">
+  <header>
+    <h2>Nossos Treinamentos</h2>
+    <p class="subtitle">Capacitação que transforma dados em resultados</p>
+  </header>
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-slides" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        @for (training of trainings; track $index) {
+          <div class="carousel-slide">
+            <div class="slide-image">
+              <img [src]="training.image" [alt]="training.title" loading="lazy" />
+              <div class="image-overlay"></div>
+            </div>
+            <div class="slide-content">
+              <h3>{{ training.title }}</h3>
+              <p>{{ training.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <button class="carousel-prev" (click)="prevSlide()" aria-label="Slide anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="carousel-next" (click)="nextSlide()" aria-label="Próximo slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    <div class="carousel-dots">
+
+        <button
+          *ngFor="training of trainings; let i = index"
+          class="dot"
+          [class.active]="i === currentIndex"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Ir para o slide ' + (i + 1)"
+        ></button>
+
+    </div>
+  </div>
+</section>
