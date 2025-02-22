@@ -10,6 +10,9 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IntersectionObserverDirective } from './interceptors/IntersectionObserverDirective.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TreinamentosCarrouselComponent } from './components/treinamentos-carrousel/treinamentos-carrousel.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,15 @@ import { HomeComponent } from './pages/home/home.component';
     AboutComponent,
     ContactComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    TreinamentosCarrouselComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IntersectionObserverDirective,
+    BrowserAnimationsModule
+
   ],
   providers: [
     provideClientHydration(withEventReplay())

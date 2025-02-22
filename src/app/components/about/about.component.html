@@ -1,1 +1,21 @@
-<p>about works!</p>
+<section class="about" id="about">
+  <header>
+    <h2 [@fadeIn]="animationState" >Sobre a DataChart </h2>
+  </header>
+  <div class="about-grid" [@fadeIn]="animationState" >
+    <div class="about-image">
+      <img src="{{ aboutImage }}" alt="Equipe DataChart analisando dados" loading="lazy">
+    </div>
+    <div class="about-content">
+      <h3> {{ aboutData.title }} </h3>
+      <p> {{ aboutData.description }} </p>
+      <ul class="values-list">
+        <li  class="value-item">
+          @for (value of aboutData.values; track $index) {
+            <span class="value-icon">✔</span> {{ value }}
+          }
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
