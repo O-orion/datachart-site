@@ -1,0 +1,152 @@
+@use "../../styled/variables" as *;
+
+.services {
+  padding: 80px 40px;
+  background: $graphite-gray;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Detalhe criativo: linha dourada no topo
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: $luminous-gold;
+  }
+
+  h2 {
+    font-family: $font-title;
+    color: $pearl-white;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .service-card {
+      background: $pearl-white;
+      padding: 30px;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+      // Gradiente sutil no fundo
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba($creative-purple, 0.1), rgba($luminous-gold, 0.1));
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .icon {
+        width: 90px;
+        height: 90px;
+        font-size: 3rem;
+        color: $cosmic-blue;
+        margin-bottom: 20px;
+        transition: color 0.4s ease;
+        z-index: 1;
+        position: relative;
+      }
+
+      h3 {
+        font-family: $font-body;
+        color: $graphite-gray;
+        font-size: 1.8rem;
+        margin: 0 0 15px;
+        z-index: 1;
+        position: relative;
+      }
+
+      p {
+        font-family: $font-body;
+        color: $graphite-gray;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        z-index: 1;
+        position: relative;
+      }
+
+      &:hover {
+        transform: translateY(-15px) scale(1.02); // Efeito 3D leve
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+
+        &:before {
+          opacity: 1; // Mostra o gradiente ao passar o mouse
+        }
+
+        .icon {
+          color: $luminous-gold; // Ícone muda de cor no hover
+        }
+      }
+    }
+  }
+
+  // Responsividade
+  @media (max-width: 768px) {
+    padding: 50px 20px;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+
+      .service-card {
+        padding: 25px;
+
+        .icon {
+          font-size: 2.5rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
