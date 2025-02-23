@@ -1,1 +1,50 @@
-<p>form-contato works!</p>
+<section class="contact-form" id="contact-form">
+  <header>
+    <h2>Entre em Contato</h2>
+    <p class="subtitle">Fale conosco e descubra como podemos transformar seus dados em resultados incríveis.</p>
+  </header>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-container" novalidate>
+    <div class="form-group">
+      <label for="name">Seu Nome</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Digite seu nome"
+        [class.invalid]="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || submitted)"
+      >
+      <span class="error" *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || submitted)">
+        Por favor, insira seu nome completo.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="exemplo@seuemail.com"
+        [class.invalid]="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || submitted)"
+      >
+      <span class="error" *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || submitted)">
+        Insira um e-mail válido.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="phone">Telefone</label>
+      <input
+        id="phone"
+        type="tel"
+        formControlName="phone"
+        placeholder="(XX) XXXXX-XXXX"
+        mask="(00) 00000-0000"
+        [class.invalid]="contactForm.get('phone')?.invalid && (contactForm.get('phone')?.touched || submitted)"
+      >
+      <span class="error" *ngIf="contactForm.get('phone')?.invalid && (contactForm.get('phone')?.touched || submitted)">
+        Insira um telefone válido.
+      </span>
+    </div>
+    <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Enviar Mensagem</button>
+    <p class="success-message" *ngIf="formSubmitted">Obrigado! Entraremos em contato em breve.</p>
+  </form>
+</section>

@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TreinamentosCarrouselComponent } from './components/treinamentos-carrousel/treinamentos-carrousel.component';
 import { CursosComponent } from './components/cursos/cursos.component';
 import { FormContatoComponent } from './components/form-contato/form-contato.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { FormContatoComponent } from './components/form-contato/form-contato.com
     BrowserModule,
     AppRoutingModule,
     IntersectionObserverDirective,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [
