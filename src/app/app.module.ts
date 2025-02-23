@@ -16,6 +16,7 @@ import { TreinamentosCarrouselComponent } from './components/treinamentos-carrou
 import { CursosComponent } from './components/cursos/cursos.component';
 import { FormContatoComponent } from './components/form-contato/form-contato.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PartnersComponent } from './components/partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TreinamentosCarrouselComponent,
     CursosComponent,
     FormContatoComponent,
+    PartnersComponent,
   ],
   imports: [
     BrowserModule,
