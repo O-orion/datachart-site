@@ -1,1 +1,11 @@
-<p>partners works!</p>
+<section class="partners" id="partners">
+  <header>
+    <h2>Parceiros que Confiam em Nós</h2>
+    <p class="subtitle">Empresas que contam com a Datachart para transformar dados em sucesso.</p>
+  </header>
+  <div class="partners-container">
+    <div class="partner-card" *ngFor="let partner of partners">
+      <img [src]="partner.logo" [alt]="partner.name + ' logo'" class="partner-logo">
+    </div>
+  </div>
+</section>
