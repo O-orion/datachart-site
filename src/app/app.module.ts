@@ -14,6 +14,7 @@ import { IntersectionObserverDirective } from './interceptors/IntersectionObserv
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TreinamentosCarrouselComponent } from './components/treinamentos-carrousel/treinamentos-carrousel.component';
 import { CursosComponent } from './components/cursos/cursos.component';
+import { FormContatoComponent } from './components/form-contato/form-contato.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CursosComponent } from './components/cursos/cursos.component';
     HomeComponent,
     TreinamentosCarrouselComponent,
     CursosComponent,
+    FormContatoComponent,
   ],
   imports: [
     BrowserModule,
