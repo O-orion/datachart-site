@@ -17,6 +17,7 @@ import { CursosComponent } from './components/cursos/cursos.component';
 import { FormContatoComponent } from './components/form-contato/form-contato.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PartnersComponent } from './components/partners/partners.component';
+import { MinidashboardComponent } from './components/minidashboard/minidashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PartnersComponent } from './components/partners/partners.component';
     CursosComponent,
     FormContatoComponent,
     PartnersComponent,
+    MinidashboardComponent,
   ],
   imports: [
     BrowserModule,
