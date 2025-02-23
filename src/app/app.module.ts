@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { IntersectionObserverDirective } from './interceptors/IntersectionObserverDirective.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TreinamentosCarrouselComponent } from './components/treinamentos-carrousel/treinamentos-carrousel.component';
+import { CursosComponent } from './components/cursos/cursos.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TreinamentosCarrouselComponent } from './components/treinamentos-carrou
     FooterComponent,
     HomeComponent,
     TreinamentosCarrouselComponent,
+    CursosComponent,
   ],
   imports: [
     BrowserModule,

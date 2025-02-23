@@ -1,0 +1,386 @@
+@use "../../styled/variables" as *;
+
+.courses-carousel {
+  padding: 60px 40px;
+  background: linear-gradient(135deg, $pearl-white 0%, darken($pearl-white, 5%) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: $luminous-gold;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 8px rgba($luminous-gold, 0.4);
+  }
+
+  h2 {
+    font-family: $font-title;
+    color: $graphite-gray;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-family: $font-body;
+    color: rgba($graphite-gray, 0.85);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .carousel-wrapper {
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      height: 400px;
+      position: relative;
+      background: rgba($pearl-white, 0.8);
+      padding: 15px;
+    }
+
+    .carousel-slides {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        overflow: hidden;
+
+        .slide-image {
+          position: relative;
+          width: 50%;
+          max-width: 600px;
+          height: 100%;
+          flex-shrink: 0;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
+          }
+
+          .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+            border-radius: 10px;
+            pointer-events: none;
+          }
+
+          &:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        .slide-content {
+          width: 45%;
+          max-width: 400px;
+          text-align: left;
+          color: $graphite-gray;
+          padding: 15px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          h3 {
+            font-family: $font-body;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+            color: $luminous-gold;
+            white-space: normal;
+            line-height: 1.2;
+          }
+
+          .description {
+            font-family: $font-body;
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+            margin: 0;
+          }
+
+          .qualities {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-family: $font-body;
+            font-size: 0.95rem;
+            opacity: 0.85;
+
+            li {
+              position: relative;
+              padding-left: 20px;
+              margin-bottom: 8px;
+
+              &::before {
+                content: '✔';
+                position: absolute;
+                left: 0;
+                color: $luminous-gold;
+                font-size: 1rem;
+              }
+            }
+          }
+
+          .download-btn {
+            background: $luminous-gold;
+            color: $graphite-gray;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: $font-body;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+
+            &:hover {
+              background: lighten($luminous-gold, 10%);
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+    }
+
+    .carousel-prev,
+    .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba($graphite-gray, 0.15);
+      border: 2px solid $luminous-gold;
+      border-radius: 50%;
+      color: $luminous-gold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        stroke: $luminous-gold;
+      }
+
+      &:hover {
+        background: $luminous-gold;
+        color: $graphite-gray;
+        svg { stroke: $graphite-gray; }
+      }
+    }
+
+    .carousel-prev { left: -60px; }
+    .carousel-next { right: -60px; }
+
+    .carousel-dots {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        background: rgba($graphite-gray, 0.4);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active {
+          background: $luminous-gold;
+          transform: scale(1.2);
+        }
+
+        &:hover {
+          background: rgba($luminous-gold, 0.8);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .carousel-container {
+      .carousel-prev { left: 10px; }
+      .carousel-next { right: 10px; }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px; // Respiração nos lados e topo/base
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .carousel-container {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+
+      .carousel-wrapper {
+        border-radius: 10px; // Bordas arredondadas leves
+        box-shadow: none;
+
+        background: transparent;
+        overflow: visible; // Garante que nada seja cortado
+      }
+
+      .carousel-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+
+        .slide-image {
+          height: 13.5rem !important;
+          width: 100%;
+          max-width: none;
+          margin: 0;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .image-overlay {
+            border-radius: 10px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+          }
+        }
+
+        .slide-content {
+
+          margin: 0;
+          width: 100%;
+          padding: 0 2px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          h3 {
+            font-size: 1.6rem;
+            text-align: center;
+            margin: 0;
+            color: $graphite-gray; // Ajustado para contraste no fundo claro
+          }
+
+          .description,
+          .qualities {
+            display: none; // Esconde descrição e qualidades
+          }
+
+          .download-btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            margin-bottom: 15px; // Respiração na base
+          }
+        }
+      }
+
+      .carousel-prev,
+      .carousel-next {
+        width: 40px;
+        height: 40px;
+        background: rgba($graphite-gray, 0.8);
+        border: none;
+        border-radius: 8px;
+        opacity: 0.8;
+
+        svg { width: 20px; height: 20px; }
+
+        &:hover {
+          background: $luminous-gold;
+          opacity: 1;
+        }
+      }
+
+      .carousel-prev { left: 25px; } // Ajustado para ficar dentro da "respiração"
+      .carousel-next { right: 25px; } // Ajustado para ficar dentro da "respiração"
+
+      .carousel-dots {
+        margin-top: 15px;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    h2 { font-size: 1.8rem; }
+    .subtitle { font-size: 0.9rem; }
+
+    .carousel-container {
+      .carousel-slide {
+        .slide-image {
+          height: 45vh; // Ajustado para telas menores
+        }
+
+        .slide-content {
+          h3 { font-size: 1.4rem; }
+          .download-btn { padding: 7px 14px; font-size: 0.85rem; }
+        }
+      }
+
+      .carousel-prev,
+      .carousel-next {
+        width: 35px;
+        height: 35px;
+        svg { width: 18px; height: 18px; }
+      }
+
+      .carousel-dots {
+        gap: 10px;
+        .dot { width: 10px; height: 10px; }
+      }
+    }
+  }
+}
