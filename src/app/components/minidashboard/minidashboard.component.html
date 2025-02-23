@@ -1,1 +1,20 @@
-<p>minidashboard works!</p>
+<section class="mini-dashboard" id="mini-dashboard">
+  <header>
+    <h2>Resultados que Falam</h2>
+    <p class="subtitle">Veja o impacto da Datachart em números reais.</p>
+  </header>
+  <div class="dashboard-container">
+    <div class="metric-card">
+      <div class="metric-value" [ngStyle]="{'width': clientsProgress + '%'}">50+</div>
+      <p class="metric-label">Clientes Satisfeitos</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" [ngStyle]="{'width': efficiencyProgress + '%'}">30%</div>
+      <p class="metric-label">Aumento de Eficiência</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value" [ngStyle]="{'width': trainingProgress + '%'}">500+</div>
+      <p class="metric-label">Horas de Treinamento</p>
+    </div>
+  </div>
+</section>
