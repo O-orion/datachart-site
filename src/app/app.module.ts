@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ServicesComponent } from './components/services/services.component';
 import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { ComentariosComponent } from './components/comentarios/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { IntersectionObserverDirective } from './interceptors/IntersectionObserverDirective.directive';
@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeroComponent,
     ServicesComponent,
     AboutComponent,
-    ContactComponent,
+    ComentariosComponent,
     FooterComponent,
     HomeComponent,
     TreinamentosCarrouselComponent,
