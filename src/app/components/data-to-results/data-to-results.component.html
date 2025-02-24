@@ -1,0 +1,18 @@
+<section class="data-to-results" id="data-to-results">
+  <header>
+    <h2>De Dados a Resultados</h2>
+    <p class="subtitle">Nosso processo transforma números brutos em decisões estratégicas.</p>
+  </header>
+  <div class="process-container">
+    <div class="process-step" *ngFor="let step of steps; let i = index">
+      <div class="step-icon" [ngClass]="'step-' + i">
+        <img [src]="step.icon" [alt]="step.title" loading="lazy">
+      </div>
+      <h3>{{ step.title }}</h3>
+      <p>{{ step.description }}</p>
+    </div>
+    <svg class="process-line" viewBox="0 0 100 10" preserveAspectRatio="none">
+      <path d="M0 5 H100" stroke="$luminous-gold" stroke-width="2" stroke-dasharray="5,5" />
+    </svg>
+  </div>
+</section>

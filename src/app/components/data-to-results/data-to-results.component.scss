@@ -1,0 +1,182 @@
+@use "../../styled/variables" as *;
+
+.data-to-results {
+  padding: 90px 20px; // Compacto
+  background: linear-gradient(135deg, $graphite-gray 0%, darken($graphite-gray, 10%) 100%);
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: $luminous-gold;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 8px rgba($luminous-gold, 0.3);
+  }
+
+  h2 {
+    font-family: $font-title;
+    color: $pearl-white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-family: $font-body;
+    color: rgba($pearl-white, 0.85);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .process-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+
+    .process-step {
+      width: 280px; // Tamanho pequeno
+      padding: 20px;
+      background: rgba($pearl-white, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba($luminous-gold, 0.3);
+      }
+
+      .step-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background: rgba($luminous-gold, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+          filter: brightness(1.2);
+        }
+
+        &.step-0 { background: rgba($luminous-gold, 0.15); }
+        &.step-1 { background: rgba($luminous-gold, 0.2); }
+        &.step-2 { background: rgba($luminous-gold, 0.25); }
+      }
+
+      h3 {
+        font-family: $font-title;
+        color: $luminous-gold;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-family: $font-body;
+        color: $pearl-white;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0;
+        opacity: 0.9;
+      }
+    }
+
+    .process-line {
+      position: absolute;
+      top: 50px; // Alinha com os ícones
+      left: 0;
+      width: 100%;
+      height: 10px;
+      z-index: 0;
+      opacity: 0.5;
+
+      path {
+        stroke: $luminous-gold;
+        stroke-width: 2;
+        stroke-dasharray: 5, 5;
+        animation: dash 2s infinite linear;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px 15px;
+
+    h2 { font-size: 1.8rem; }
+    .subtitle { font-size: 0.9rem; margin-bottom: 20px; }
+
+    .process-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      .process-step {
+        width: 100%;
+        max-width: 300px;
+        padding: 15px;
+
+        .step-icon {
+          width: 50px;
+          height: 50px;
+
+          img { width: 35px; height: 35px; }
+        }
+
+        h3 { font-size: 1.1rem; }
+        p { font-size: 0.85rem; }
+      }
+
+      .process-line { display: none; } // Linha some no mobile pra simplificar
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 10px;
+
+    h2 { font-size: 1.6rem; }
+    .subtitle { font-size: 0.85rem; }
+
+    .process-container {
+      .process-step {
+        padding: 12px;
+
+        .step-icon {
+          width: 45px;
+          height: 45px;
+
+          img { width: 30px; height: 30px; }
+        }
+
+        h3 { font-size: 1rem; }
+        p { font-size: 0.8rem; }
+      }
+    }
+  }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -20; }
+}

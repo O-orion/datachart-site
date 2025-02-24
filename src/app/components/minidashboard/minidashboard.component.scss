@@ -1,7 +1,7 @@
 @use "../../styled/variables" as *;
 
 .mini-dashboard {
-  padding: 40px 20px; // Compacto
+  padding: 80px 20px; // Compacto
   background: linear-gradient(135deg, $pearl-white 0%, darken($pearl-white, 5%) 100%);
   text-align: center;
   position: relative;

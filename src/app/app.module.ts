@@ -18,6 +18,7 @@ import { FormContatoComponent } from './components/form-contato/form-contato.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PartnersComponent } from './components/partners/partners.component';
 import { MinidashboardComponent } from './components/minidashboard/minidashboard.component';
+import { DataToResultsComponent } from './components/data-to-results/data-to-results.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MinidashboardComponent } from './components/minidashboard/minidashboard
     FormContatoComponent,
     PartnersComponent,
     MinidashboardComponent,
+    DataToResultsComponent,
   ],
   imports: [
     BrowserModule,

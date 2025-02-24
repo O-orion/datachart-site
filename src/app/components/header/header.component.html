@@ -10,11 +10,11 @@
   </button>
 
   <nav [class.active]="menuOpen">
-    <a href="">Home</a>
-    <a href="">Serviços</a>
-    <a href="">Cursos</a>
-    <a href="">Sobre</a>
-    <a href="">Contato</a>
-    <button class="cta">Fale Conosco</button>
+    <a href="#hero"  (click)="scrollToSection($event, 'hero')">Home</a>
+    <a href="#services" (click)="scrollToSection($event, 'services')" >Serviços</a>
+    <a href="#courses" (click)="scrollToSection($event, 'courses')" >Cursos</a>
+    <a href="#about" (click)="scrollToSection($event, 'about')" >Sobre</a>
+    <a href="#contact" (click)="scrollToSection($event, 'contact')" >Contato</a>
+    <button class="cta" (click)="scrollToSection($event, 'contact')" >Fale Conosco</button>
   </nav>
 </header>
